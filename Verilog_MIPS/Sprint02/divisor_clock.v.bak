@@ -1,0 +1,15 @@
+module divisor_clock(input entrada, output reg saida);
+
+	reg [24:0] contador = 25'h0;
+	
+	always@(posedge entrada)
+	begin
+		if (contador == 25'25000000)
+		begin
+			contador <= 25'h0;
+			saida = ~saida;
+		end
+		else	
+			contador <= contador + 1;
+	end
+endmodule
